@@ -1,12 +1,16 @@
-# React + Vite
+# MERN Todo App - Frontend (Cloud-Native Deployment)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern full-stack MERN task management application featuring an optimized production-grade deployment architecture leveraging **AWS EKS**, **Docker**, **Jenkins CI/CD**, and **Kubernetes**.
 
-Currently, two official plugins are available:
+## 🚀 Architecture & Deployment Flow
+1. **Source Code Management:** Code changes pushed to GitHub.
+2. **CI/CD Automation:** Jenkins orchestrates the pipeline, running repository clones and code quality analysis via **SonarQube**.
+3. **Containerization:** A multi-stage `node:18-alpine` Docker build compiles the Vite/React source code into static assets, serving them efficiently using `serve`.
+4. **Artifact Registry:** Container images are automatically built and pushed to **Docker Hub**.
+5. **Orchestration:** Jenkins connects to **AWS EKS** via secure AWS credentials and deploys the application using Kubernetes manifests (`Deployment` and `LoadBalancer` Service).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tech Stack
+* **Frontend:** React, Vite, JavaScript
+* **Containerization:** Docker (Multi-stage builds)
+* **CI/CD:** Jenkins, SonarQube
+* **Orchestration & Cloud:** Kubernetes (EKS), AWS LoadBalancer
